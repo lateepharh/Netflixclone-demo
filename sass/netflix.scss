@@ -1,0 +1,286 @@
+@import "toggle";
+$primarycolor:#272727;
+$secondarycolor:#ff652f;
+$mobile:750px;
+@mixin phone {
+   @media(max-width: $mobile){
+      @content;
+   }
+
+}
+@mixin transition{
+    transition: all 0.5s ease-in-out;
+} 
+@function set-text-color($color){
+    @if (lightness($color) > 40%) {
+        @return #000;
+    }@else{
+        @return #fff;
+    }
+}
+
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+body{
+   height: 100vh;
+   width: 100vw;
+
+}
+.one{
+   height: 57vh;
+   width: 100vw;
+   background: linear-gradient(to bottom, black,rgba(255,255,255,0), black), url(../pics/netflix\ bg.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+
+   .center{
+      text-align: center;
+      margin-top: 15px;
+      color: white;
+
+      h2{
+         font-size: 35px;
+      }
+      input{
+         padding: 15px;
+         width: 400px;
+         margin-top: 15px;
+         
+      }
+      p{
+         font-size: 19px;
+      }
+      button{
+         background-color: red;
+         color: white;
+         padding: 15px;
+         width: fit-content;
+         height: fit-content;
+         border: 1px solid red;
+      }
+   }
+
+}
+
+header{
+   width: 100vw;
+   height: fit-content;
+   padding: 15px 20px;
+   color: white;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.flex3{
+   display: flex;
+   gap: 20px;
+}
+.flex1{
+   display: flex;
+   gap: 20px;
+   h1{
+      color: rgb(109, 3, 3);
+      font-weight: 800;
+   }
+}
+.checkbox{
+   display: none;
+   margin-left: auto;
+}
+.toggle-menu{
+   position: relative;
+   width: 4rem;
+   height: 3.5rem;
+   padding: 0.5rem;
+   z-index: 5001;
+   border-radius: 6px;
+   background-color: rgba(255,255,255,0.2);
+   margin: 1rem 3rem 1rem 0.5rem ;
+}
+.toggle-line{
+   position: absolute;
+   width: 70%;
+   height: 0.25rem;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   transition:all 0.3s ;
+   background-color: black;
+}
+.toggle-menu::before, .toggle-menu::after{
+   position: absolute;
+   width: 70%;
+   height: 0.25rem;
+   top: 25%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   transition:all 0.3s ;
+   background-color: black;
+   content: "";
+}
+.toggle-menu::after{
+   top: 75%;
+}
+.container{
+   width: 25vw;
+   height: 100vh;
+   overflow: hidden;
+   transition: all 0.4s;
+   transform: scale(0);
+   z-index: 5000;
+   top: 0%;
+   left: 0%;
+   position: fixed;
+   background-image:linear-gradient(to bottom, black, rgba(255,255,255,0)), url(../pics/netflix\ bg.jpg);
+   padding: 50px 18px;
+
+   .flex{
+      display: flex;
+      justify-content: space-between;
+      h1{
+         font-weight: 600;
+         color: rgb(109, 3, 3);
+      }
+      button{
+         background-color: red;
+         color: white;
+         height: fit-content;
+         width: fit-content;
+         padding: 8px;
+         align-self: center;
+      }
+   }
+
+   aside{
+      text-align: center;
+      margin-top: 70px;
+      padding: 20px 15px;
+
+
+      h2{
+         font-weight: 800;
+         font-size: 50px;
+      }
+      p{
+         font-size: 20px;
+         padding: 10px 0;
+      }
+   }
+   .email{
+      padding: 15px 8px;
+      width: 320px;
+      margin-bottom: 10px;
+
+      &:focus{
+         background-color: rgba(255,255,255,0.2);
+         color: white;
+      }
+   }
+
+}
+.btn{
+   width: fit-content;
+   height: fit-content;
+   border: 2px solid red;
+   padding: 10px;
+   color: #fff;
+   background-color: red;
+}
+.last{
+   padding:0 10px;
+   margin-top: 15px;
+   span{
+      text-indent: 5px;
+   }
+}
+.checkbox:checked ~ .toggle-menu::before{
+   transform:translate(-50%, -50%) rotate(45deg);
+   top: 50%;
+}
+.checkbox:checked ~ .toggle-menu .toggle-line{
+   opacity: 0;
+}
+.checkbox:checked ~ .toggle-menu::after{
+   transform: translate(-50%, -50%) rotate(-45deg);
+   top: 50%;
+}
+.checkbox:checked ~ .container{
+   transform: scale(1);
+}
+.but{
+   background-color: red;
+   color: white;
+   height: fit-content;
+   width: fit-content;
+   padding: 8px;
+   border:1px solid red;
+   align-self: center;
+}
+h1{
+   font-weight: 600;
+   color: rgb(211, 23, 23);
+   font-family: 'Times New Roman', Times, serif;
+}
+.tvscreen{
+   width: 600px;
+   height: 300px;
+   border: 20px ridge gray;
+   border-radius: 5px;
+   position: relative;
+}
+.tvscreen::after{
+   content: "";
+   position: absolute;
+   width: 0.4%;
+   height:2%;
+   background-color: gray;
+   border: 3px ridge gray;
+   bottom: -12%;
+   left: 50%;
+}
+.tvstand{
+   position: absolute;
+   height: 2%;
+   width: 10%;
+   border: 1px ridge gray;
+   background-color: gray;
+   bottom: -14%;
+   left: 45%;
+   border-top-left-radius: 3px;
+   border-top-right-radius: 3px;
+}
+.content iframe{
+   height: 270px;
+   width: 560px;
+}
+.two{
+   width: 100vw;
+   height: fit-content;
+   padding: 25px;
+   background: black;
+   @include phone{
+      height: fit-content;
+   }
+}
+.second{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   color: #fff;
+   @include phone{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 25px;
+      gap: 10px;
+   }
+   h2{
+      font-size: 40px;
+   }
+   p{
+      font-size: 20px;
+   }
+}
+

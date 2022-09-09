@@ -1,0 +1,109 @@
+.smartphone{
+   height: 370px;
+   width: 280px;
+   position: relative;
+   border-radius: 15px;
+   border: 10px solid gray;
+}
+.volume{
+   position: absolute;
+   background: rgb(109, 108, 108);
+   width: 1.95%;
+   height: 6%;
+   top: 29%;
+   left: -5%;
+   border-top-left-radius: .5rem;
+   border-bottom-left-radius: .5rem;
+}
+.volume.down{top: 37%;}
+.power{
+   position:absolute;
+   background:rgb(109, 108, 108);
+   width: 1.1%;
+   height: 7.5%;
+   top: 15%;
+   left: 104%;
+   border-top-right-radius: .5rem;
+   border-bottom-right-radius: .5rem;
+}
+.camera{
+   position: absolute;
+   left: 43%;
+   top: 20px;
+   background-color: #333;
+   width: 8px;
+   height: 8px;
+   border-radius: 50%;
+}
+.speaker{
+   position: absolute;
+   left: 50%;
+   background: #333;
+   width: 28px;
+   height: 4px;
+   border-radius: 4px;
+   top: 21px;
+}
+.blank{
+   height: 50px;
+   width: 250px;
+   background-color: black;
+}
+.stuff img{
+   height: 300px;
+   width: 260px;
+   position: relative;
+}
+hr{
+   color:rgb(109, 108, 108);
+   margin: 25px 0;
+}
+.table img{
+   width: 300px;
+   height: 300px;
+}
+.three{
+   height: fit-content;
+   width: 100vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: black;
+   color: white;
+   .inner{
+      position: relative;
+      input{
+         padding: 15px;
+         width: 400px;
+         margin-top: 15px;
+      }
+      button{
+         background-color: red;
+         color: white;
+         padding: 15px;
+         width: fit-content;
+         height: fit-content;
+         border: 1px solid red;
+      }
+      h1{
+         color: white;
+         text-align: center;
+      }
+
+      p{
+         border: 1px solid gray;
+         padding: 8px 20px;
+         background-color: gray;
+         margin: 10px 0;
+         width: 530px;
+         height: fit-content;
+         color: white;
+         span{
+            float:right;
+         }
+      }
+
+      
+   }
+
+}
